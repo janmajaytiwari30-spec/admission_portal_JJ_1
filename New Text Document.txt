@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admission Portal</title>
+  <style>
+
+    /* ----- COLORS ----- */
+    body {
+      background-color: #FDFBF7;
+      font-family: Georgia, serif;
+      color: #2C2C2C;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ----- TOP BAR ----- */
+    .topbar {
+      background-color: #2C4A72;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    /* ----- NAV BUTTONS ----- */
+    .nav {
+      background-color: #D4B896;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .nav button {
+      background-color: #2C4A72;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .nav button:hover {
+      background-color: #6B7A3E;
+    }
+
+    /* ----- PAGES ----- */
+    .page {
+      display: none;
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ----- HEADINGS ----- */
+    h2 {
+      color: #2C4A72;
+      border-bottom: 3px solid #D4B896;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+
+    /* ----- FORM FIELDS ----- */
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: bold;
+      color: #2C4A72;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1.5px solid #D4B896;
+      border-radius: 6px;
+      font-size: 15px;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2C4A72;
+      outline: none;
+    }
+
+    /* ----- SUBMIT BUTTON ----- */
+    .submit-btn {
+      margin-top: 24px;
+      background-color: #6B7A3E;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: #2C4A72;
+    }
+
+    /* ----- MESSAGE BOX ----- */
+    .message {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 15px;
+      display: none;
+    }
+
+    .success {
+      background-color: #DDE3C5;
+      color: #3B4A1E;
+      border-left: 5px solid #6B7A3E;
+    }
+
+    .error {
+      background-color: #FDECEA;
+      color: #7B1C1C;
+      border-left: 5px solid #C0392B;
+    }
+
+    /* ----- INFO BOXES (Home page) ----- */
+    .info-box {
+      background-color: #EDE0CE;
+      border-left: 5px solid #2C4A72;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+    }
+
+    .info-box h3 {
+      margin: 0 0 6px 0;
+      color: #2C4A72;
+    }
+
+    /* ----- COURSE TABLE ----- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th {
+      background-color: #2C4A72;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #D4B896;
+    }
+
+    tr:hover {
+      background-color: #EDE0CE;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      background-color: #2C4A72;
+      color: #C8D8EE;
+      text-align: center;
+      padding: 18px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">🎓 Medicaps University — Admission Portal</div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('courses')">Courses</button>
+    <button onclick="showPage('apply')">Apply</button>
+    <button onclick="showPage('eligibility')">Eligibility</button>
+  </div>
+
+
+  <!-- ===== HOME PAGE ===== -->
+  <div id="home" class="page active">
+    <h2>Welcome to the Admission Portal</h2>
+
+    <p>Hello! This portal helps you apply for admission at Medicaps University. Follow the steps below to get started.</p>
+
+    <br>
+
+    <div class="info-box">
+      <h3>Step 1 — Browse Courses</h3>
+      <p>Go to the <strong>Courses</strong> tab to see all available programs and their details.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Step 2 — Check Eligibility</h3>
+      <p>Use the <strong>Eligibility</strong> tab to check if you qualify based on your marks.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Step 3 — Fill the Application</h3>
+      <p>Click <strong>Apply</strong> to fill out and submit your admission form.</p>
+    </div>
+
+    <br>
+    <p style="color:#6B7A3E; font-size:14px;">📌 Admissions are open for the 2025–26 academic year.</p>
+  </div>
+
+
+  <!-- ===== COURSES PAGE ===== -->
+  <div id="courses" class="page">
+    <h2>Available Courses</h2>
+    <p>Below are the programs offered. Check minimum marks before applying.</p>
+
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Duration</th>
+        <th>Min. Marks</th>
+        <th>Seats</th>
+      </tr>
+      <tr>
+        <td>B.Tech Computer Science</td>
+        <td>4 Years</td>
+        <td>75%</td>
+        <td>120</td>
+      </tr>
+      <tr>
+        <td>B.Sc Physics</td>
+        <td>3 Years</td>
+        <td>60%</td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td>BBA Business Admin</td>
+        <td>3 Years</td>
+        <td>55%</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>B.Com Accounting</td>
+        <td>3 Years</td>
+        <td>55%</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>BA English Literature</td>
+        <td>3 Years</td>
+        <td>50%</td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td>MBA</td>
+        <td>2 Years</td>
+        <td>60%</td>
+        <td>60</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ===== APPLY PAGE ===== -->
+  <div id="apply" class="page">
+    <h2>Admission Application Form</h2>
+    <p>Fill in all the fields below and click Submit.</p>
+
+    <!-- Name -->
+    <label>Full Name *</label>
+    <input type="text" id="name" placeholder="Enter your full name" />
+
+    <!-- Email -->
+    <label>Email Address *</label>
+    <input type="email" id="email" placeholder="example@email.com" />
+
+    <!-- Phone -->
+    <label>Phone Number *</label>
+    <input type="text" id="phone" placeholder="10-digit number" />
+
+    <!-- Marks -->
+    <label>12th Percentage (%) *</label>
+    <input type="number" id="marks" placeholder="e.g. 78" min="0" max="100" />
+
+    <!-- Course -->
+    <label>Course Applying For *</label>
+    <select id="course">
+      <option value="">-- Select a course --</option>
+      <option>B.Tech Computer Science</option>
+      <option>B.Sc Physics</option>
+      <option>BBA Business Admin</option>
+      <option>B.Com Accounting</option>
+      <option>BA English Literature</option>
+      <option>MBA</option>
+    </select>
+
+    <!-- Submit -->
+    <button class="submit-btn" onclick="submitForm()">Submit Application</button>
+
+    <!-- Message shown after submit -->
+    <div class="message" id="formMsg"></div>
+  </div>
+
+
+  <!-- ===== ELIGIBILITY PAGE ===== -->
+  <div id="eligibility" class="page">
+    <h2>Check Your Eligibility</h2>
+    <p>Enter your details below to see if you qualify.</p>
+
+    <label>Your 12th Percentage (%)</label>
+    <input type="number" id="chkMarks" placeholder="e.g. 72" min="0" max="100" />
+
+    <label>Course You Want</label>
+    <select id="chkCourse">
+      <option value="">-- Select a course --</option>
+      <option value="75">B.Tech Computer Science (needs 75%)</option>
+      <option value="60">B.Sc Physics (needs 60%)</option>
+      <option value="55">BBA Business Admin (needs 55%)</option>
+      <option value="55">B.Com Accounting (needs 55%)</option>
+      <option value="50">BA English Literature (needs 50%)</option>
+      <option value="60">MBA (needs 60%)</option>
+    </select>
+
+    <button class="submit-btn" onclick="checkEligibility()">Check Now</button>
+
+    <div class="message" id="eligMsg"></div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>© 2025 Greenfield University. All rights reserved.</footer>
+
+
+  <script>
+
+    /* ---- Show / Hide Pages ---- */
+    function showPage(pageId) {
+      /* Hide all pages first */
+      var pages = document.querySelectorAll('.page')
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove('active')
+      }
+      /* Show the chosen page */
+      document.getElementById(pageId).classList.add('active')
+    }
+
+
+    /* ---- Application Form Submit ---- */
+    function submitForm() {
+      /* Read values from inputs */
+      var name   = document.getElementById('name').value
+      var email  = document.getElementById('email').value
+      var phone  = document.getElementById('phone').value
+      var marks  = document.getElementById('marks').value
+      var course = document.getElementById('course').value
+
+      var msgBox = document.getElementById('formMsg')
+
+      /* Check: are all fields filled? */
+      if (name == '' || email == '' || phone == '' || marks == '' || course == '') {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message error'
+        msgBox.innerHTML = '❌ Please fill in all the fields.'
+        return
+      }
+
+      /* Check: phone must be 10 digits */
+      if (phone.length != 10) {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message error'
+        msgBox.innerHTML = '❌ Phone number must be exactly 10 digits.'
+        return
+      }
+
+      /* Check: marks must be between 0 and 100 */
+      if (marks < 0 || marks > 100) {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message error'
+        msgBox.innerHTML = '❌ Please enter a valid percentage (0 to 100).'
+        return
+      }
+
+      /* All good — show success */
+      var appId = 'GU' + Math.floor(1000 + Math.random() * 9000)
+
+      msgBox.style.display = 'block'
+      msgBox.className = 'message success'
+      msgBox.innerHTML = '✅ Application submitted successfully!<br><br>' +
+                         '<strong>Name:</strong> ' + name + '<br>' +
+                         '<strong>Course:</strong> ' + course + '<br>' +
+                         '<strong>Application ID:</strong> ' + appId + '<br><br>' +
+                         'Please save your Application ID for future reference.'
+
+      /* Clear the form */
+      document.getElementById('name').value  = ''
+      document.getElementById('email').value = ''
+      document.getElementById('phone').value = ''
+      document.getElementById('marks').value = ''
+      document.getElementById('course').value = ''
+    }
+
+
+    /* ---- Eligibility Checker ---- */
+    function checkEligibility() {
+      var marks     = document.getElementById('chkMarks').value
+      var selectBox = document.getElementById('chkCourse')
+      var required  = selectBox.value   /* the minimum marks stored in value="" */
+      var courseName = selectBox.options[selectBox.selectedIndex].text
+
+      var msgBox = document.getElementById('eligMsg')
+
+      /* Check fields are filled */
+      if (marks == '' || required == '') {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message error'
+        msgBox.innerHTML = '❌ Please enter your marks and select a course.'
+        return
+      }
+
+      /* Simple if/else check */
+      if (marks >= required) {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message success'
+        msgBox.innerHTML = '✅ You are eligible for <strong>' + courseName + '</strong>!<br>Go ahead and apply.'
+      } else {
+        msgBox.style.display = 'block'
+        msgBox.className = 'message error'
+        msgBox.innerHTML = '❌ Sorry, you are not eligible.<br>' +
+                           'You need at least <strong>' + required + '%</strong>, but you entered <strong>' + marks + '%</strong>.'
+      }
+    }
+
+  </script>
+
+</body>
+</html>
